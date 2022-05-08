@@ -2,3 +2,11 @@
 Thumbs.db
 node_modules
 *.log
+
+# WordPress
+/web/wp_2022/*
+!/web/wp_2022/wp-config.php
+!/web/wp_2022/wp-content/
+/web/wp_2022/wp-content/*
+!/web/wp_2022/wp-content/uploads/
+!/web/wp_2022/wp-content/plugins/
