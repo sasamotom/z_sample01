@@ -1,0 +1,14 @@
+@use "../abstracts" as *;
+
+.document-lead-text {
+  font-size: 2rem;
+  color: #999;
+
+  @include mq(medium, min, true) {
+    font-weight: bold;
+  }
+
+  @include mq() {
+    font-size: 1.8rem;
+  }
+}
