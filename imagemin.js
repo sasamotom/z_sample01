@@ -16,6 +16,9 @@ keepFolder(["./src/assets/images/**/*.*"], {
     svgo(),
   ],
   replaceOutputDir: (output) => {
-    return output.replace(/images\//, "../../htdocs/assets/images/");
+    return output.replace(
+      /images\//,
+      "../../htdocs/wp_2022/wp-content/uploads/"
+    );
   },
 });

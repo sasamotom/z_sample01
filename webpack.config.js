@@ -10,7 +10,8 @@ module.exports = {
   },
   output: {
     path: __dirname,
-    filename: "./htdocs/assets/[name]/app.js",
+    filename:
+      "./htdocs/wp_2022/wp-content/themes/z_sample01/assets/[name]/app.js",
   },
   devtool: devtool,
   module: {
