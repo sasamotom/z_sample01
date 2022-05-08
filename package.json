@@ -13,20 +13,20 @@
     "watch": "run-p watch:*",
     "watch:styles": "onchange -i \"src/assets/scss\" -- npm run styles",
     "watch:scripts": "npm run scripts -- -w",
-    "watch:pug": "onchange -i \"src/**/*.pug\" -- npm run pug",
+    "watch:pug": "onchange -i \"src/**/(*.pug|*.html)\" -- npm run pug",
     "watch:ejs": "onchange -i \"src/**/*.ejs\" -- npm run ejs",
     "watch:images": "onchange -i \"src/assets/images/**/*.*\" -- npm run imagemin",
-    "watch:copy": "onchange -i \"src/**/!(*.js|*.scss|*.pug|*.ejs|*.ts)\" -e \"src/assets/images/*.*\" -- npm run copy",
+    "watch:copy": "onchange -i \"src/**/!(*.js|*.scss|*.pug|*.ejs|*.ts|_*.html)\" -e \"src/assets/images/*.*\" -- npm run copy",
     "serve": "browser-sync start -c bs-config.js",
     "styles": "run-s scss autoprefixer",
     "scss": "sass --embed-sources src/assets/scss/app.scss:htdocs/assets/css/app.css",
     "autoprefixer": "postcss htdocs/assets/css/app.css -u autoprefixer -o htdocs/assets/css/app.css -m",
     "cleancss": "cleancss -o htdocs/assets/css/app.css htdocs/assets/css/app.css",
     "scripts": "webpack --mode=development",
-    "pug": "pug src -o htdocs -P",
+    "pug": "pug src/pug -o htdocs -P",
     "ejs": "ejs-cli --base-dir src \"/**/{_tpl_,!(_)}*.ejs\" -o htdocs",
     "imagemin": "node imagemin.js",
-    "copy": "copyfiles -e \"src/assets/images/*.*\" -u 1 \"src/**/!(*.js|*.scss|*.pug|*.ejs|*.ts)\" htdocs"
+    "copy": "copyfiles -e \"src/assets/images/*.*\" -u 1 \"src/**/!(*.js|*.scss|*.pug|*.ejs|*.ts|_*.html)\" htdocs"
   },
   "browserslist": [
     "last 2 version"

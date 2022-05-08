@@ -8,12 +8,12 @@ html(lang="ja")
     title Document
     link(rel="stylesheet", href="/assets/css/app.css")
   body
-    include ./includes/_header
+    include ../_includes/_header
 
     .document-lead-text
       .container
-        div
-          | Hello, World!
+        p サブディレクトリ
+        include ../../html/_sub/_index.html
 
     script(src="/assets/js/app.js")
     script(src="/assets/ts/app.js")
