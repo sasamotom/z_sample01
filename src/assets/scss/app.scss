@@ -1,17 +1,23 @@
 @charset "UTF-8";
 
 // Vendors
-@use "../../../node_modules/normalize.css/normalize.css";
+// @use "../../../node_modules/normalize.css/normalize.css";
+@use "../../../node_modules/html5-reset/assets/css/reset.css";
 
 // Base
 @use "base/default";
 @use "base/general";
 
 // Components
-// @use "";
+@use "components/btn";
 
 // Layouts
 @use "layouts/header";
+@use "layouts/footer";
 
 // Pages
 @use "pages/index";
+@use "pages/coupon";
+@use "pages/menu";
+@use "pages/recruit";
+@use "pages/shop";

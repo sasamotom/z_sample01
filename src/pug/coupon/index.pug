@@ -1,0 +1,9 @@
+extends ../_base/_layout
+
+block vars
+  include ../_base/_settings
+  - let key = "coupon"
+  - let page = pages[key]
+
+block contents
+  include ../../html/_coupon/_index.html

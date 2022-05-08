@@ -1,0 +1,38 @@
+@use "../abstracts" as *;
+
+.sec-coupon {
+  .couponList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem 2rem;
+    margin-top: 3rem;
+    > li {
+      width: calc((100% - 2rem) / 2);
+      &.notStart {
+        position: relative;
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          content: "";
+          background: rgba(#000, 50%);
+        }
+        &::after {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: inline-block;
+          padding: 0.2em 0.8em;
+          font-size: 7rem;
+          line-height: 1.2;
+          content: "COMING SOON!!!!";
+          background: rgba(#fff, 70%);
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@use "../abstracts" as *;
+
+.cateTxt {
+  text-align: center;
+}
+.donutsCategory {
+  counter-reset: number;
+  > li {
+    position: relative;
+    padding: 10rem 0 5rem;
+    &::before {
+      position: absolute;
+      top: -7rem;
+      left: 50%;
+      z-index: -1;
+      font-size: 20rem;
+      color: $color31;
+      content: counter(number);
+      counter-increment: number;
+      transform: translateX(-50%);
+    }
+    &:nth-child(2n) {
+      &::before {
+        color: $color30;
+      }
+    }
+  }
+}
+.donutsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem 2.6%;
+  margin-top: 5rem;
+  > li {
+    width: 23%;
+  }
+  &.-detail {
+    flex-direction: row;
+    > li {
+      width: 100%;
+    }
+    .donutsInfo {
+      display: flex;
+      gap: 3%;
+      align-items: center;
+      &_pic {
+        width: 35%;
+        height: 22rem;
+      }
+      .txts {
+        width: 62%;
+      }
+    }
+  }
+}
+.sec-menu {
+  .backBtnContainer {
+    .btn {
+      text-align: right;
+    }
+  }
+}

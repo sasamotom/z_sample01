@@ -1,14 +1,347 @@
 @use "../abstracts" as *;
 
-.document-lead-text {
-  font-size: 2rem;
-  color: #999;
-
-  @include mq(medium, min, true) {
+body {
+  font-family: "Lalezar", $fontGothic;
+  font-size: 1.6rem;
+  line-height: 2.5;
+  * {
     font-weight: bold;
   }
+}
 
-  @include mq() {
-    font-size: 1.8rem;
+.secTtl {
+  position: relative;
+  padding-bottom: 0;
+  margin-top: 1em;
+  font-size: 5rem;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: 0.07em;
+  border: none;
+  &::after {
+    display: none;
+  }
+  + * {
+    margin-top: 2em;
+  }
+}
+
+.donutsInfo {
+  * + * {
+    margin-top: 1.5em;
+  }
+  &_pic {
+    height: 180px;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &_name {
+    font-size: 3rem;
+    line-height: 1.2;
+    + .donutsInfo_txt {
+      margin-top: 3em;
+    }
+    + .donutsInfo_price {
+      margin-top: 0.5em;
+    }
+  }
+  &_price {
+    font-size: 2.7rem;
+  }
+}
+
+.pageTtlContainer {
+  position: relative;
+  padding: 12rem 0 2rem;
+  background: none;
+  &::before {
+    display: none;
+  }
+  .site3PageTtl {
+    position: relative;
+    z-index: 1;
+    width: fit-content;
+    padding: 0 0.5em;
+    margin: 0 auto;
+    font-size: 4rem;
+    font-size: 6rem;
+    line-height: 1.2;
+    text-align: center;
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      display: block;
+      width: 100%;
+      height: 60%;
+      content: "";
+      background: rgb(34, 193, 195);
+      background: linear-gradient(
+        90deg,
+        $color30 0%,
+        $color30 50%,
+        $color31 50%
+      );
+    }
+  }
+}
+.categoryLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  align-items: center;
+  justify-content: center;
+  counter-reset: number;
+  > li {
+    a {
+      position: relative;
+      z-index: 1;
+      padding: 1em 1em;
+      font-size: 2rem;
+      background: $color31;
+      &::before {
+        position: absolute;
+        top: -0.88em;
+        left: -0.05em;
+        z-index: 0;
+        font-size: 10rem;
+        color: #fff;
+        content: counter(number);
+        counter-increment: number;
+      }
+      &::after {
+        display: inline-block;
+        width: auto;
+        height: auto;
+        color: #fff;
+        content: " >>>>";
+        background: inherit;
+        transition: 0.3s;
+        transform: rotate(90deg);
+      }
+      &:hover {
+        &::after {
+          transform: rotate(90deg) translateX(10px);
+        }
+      }
+      span {
+        position: relative;
+        z-index: 2;
+      }
+    }
+    &:nth-child(2n) {
+      a {
+        background: $color30;
+      }
+    }
+  }
+}
+
+.pagination {
+  > li {
+    a,
+    span {
+      color: $colorText;
+      background: none;
+      border: none;
+      border-radius: 0;
+    }
+    span {
+      text-decoration: underline;
+    }
+    a:hover {
+      opacity: 0.5;
+    }
+  }
+  .first,
+  .prev,
+  .next,
+  .last {
+    a::before,
+    a::after {
+      width: 13%;
+      height: 13%;
+      border-color: $colorText;
+    }
+    a::after {
+      left: 39%;
+    }
+  }
+}
+
+.preNextBtnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5rem;
+  .btn {
+    margin-top: 0;
+    a,
+    span {
+      font-size: 80%;
+      border: none;
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+    a:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+.cateList {
+  display: flex;
+  flex-wrap: wrap;
+  > li {
+    + li {
+      margin-left: 0.5em;
+    }
+  }
+  a,
+  span {
+    padding: 0.5em;
+    border: 1px solid #eee;
+  }
+  a {
+    &:hover {
+      border-color: $colorText;
+    }
+  }
+  span {
+    border-color: $colorText;
+  }
+}
+
+.-small {
+  font-size: 50%;
+}
+.-large {
+  font-size: 120%;
+}
+
+.site3Mv {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 90vh;
+  background: url(/wp_2022/wp-content/uploads/3_mv.jpg) center center / cover;
+  &_ttl {
+    width: fit-content;
+    padding: 0.2em 1em;
+    margin: 0 auto;
+    font-size: 2.4rem;
+    font-weight: bold;
+    background: #fff;
+  }
+}
+
+.topSite3 {
+  padding: 7rem 0 12rem;
+  text-align: center;
+  .txt {
+    margin-top: 4em;
+    font-weight: bold;
+  }
+  .pic {
+    width: 90%;
+    margin: 2em auto 0;
+  }
+}
+.topNew {
+  padding: 10rem 0 12rem;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(90deg, $color30 0%, $color30 50%, $color31 50%);
+}
+.twoCols {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .secTtl {
+    margin-top: 0;
+  }
+  .col {
+    width: 45%;
+    .pic {
+      width: 85%;
+      margin: 2em auto 0;
+    }
+    .txt {
+      text-align: center;
+    }
+  }
+}
+.topMenu {
+  background: url(/wp_2022/wp-content/uploads/3_img03.jpg) center center / cover;
+  transition: 0.4s;
+  &:hover {
+    background: url(/wp_2022/wp-content/uploads/3_img03.jpg) center bottom 30% /
+      cover;
+  }
+  a {
+    display: block;
+    width: 100%;
+    padding: 1.2em 0;
+    font-size: 8rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 7px 5px 0 $color30, -7px -5px 0 $color31;
+    &::after {
+      content: " >>>>>>>>>";
+    }
+    &:hover {
+      text-shadow: 1px 1px 0 $color30, -1px -1px 0 $color31;
+    }
+  }
+}
+.topShop {
+  padding: 11rem 0 13rem;
+  .secTtl {
+    margin-top: 0;
+  }
+  .twoCols {
+    margin-top: 8rem;
+  }
+  .txt {
+    margin-top: 0;
+  }
+}
+.topRecruit {
+  position: relative;
+  padding: 9rem 0 10rem;
+  background: $color31;
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 50%;
+    height: 100%;
+    content: "";
+    background: url(/wp_2022/wp-content/uploads/3_img05.jpg) center center /
+      cover no-repeat;
+  }
+  .twoCols {
+    &::before {
+      display: block;
+      content: "";
+    }
+  }
+}
+.topSite3,
+.topNew,
+.topMenu,
+.topShop,
+.topRecruit {
+  .secTtl {
+    font-size: 6rem;
   }
 }

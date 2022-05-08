@@ -1,0 +1,17 @@
+block vars
+doctype html
+html(dir="ltr" lang="ja")
+  head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#")
+    include _head
+
+  body(class="p-" + key)
+    include ../_includes/_header
+
+    main#main
+      block contents
+
+    if key !== "xxxx"
+     include ../_includes/_footer
+
+    script(src="/wp_2022/wp-content/themes/z_sample01/assets/js/app.js")
+    script(src="/wp_2022/wp-content/themes/z_sample01/assets/ts/app.js")

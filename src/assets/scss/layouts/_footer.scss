@@ -1,0 +1,11 @@
+@use "../abstracts" as *;
+
+.footer {
+  position: sticky;
+  top: 100vh;
+  padding: 10px 0;
+  &Copy {
+    font-size: 1rem;
+    text-align: center;
+  }
+}

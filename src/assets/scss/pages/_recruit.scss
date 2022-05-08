@@ -1,0 +1,372 @@
+@use "../abstracts" as *;
+
+.layout_2cols {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  .col1,
+  .col2 {
+    padding: 1em;
+  }
+  > .col1 {
+    width: 20%;
+    min-height: 50vh;
+    border-right: 8px solid $color31;
+    border-left: 8px solid $color30;
+  }
+  > .col2 {
+    width: 78%;
+    .txt + .pic {
+      margin-top: 1em;
+    }
+    .txt + .txt {
+      margin-top: 1em;
+    }
+  }
+  .recruitNavList {
+    > li {
+      line-height: 1.2;
+      + li {
+        margin-top: 2em;
+      }
+      a {
+        font-size: 90%;
+        &:hover {
+          color: $color31;
+          text-shadow: 2px 1px 0 $color30;
+        }
+      }
+    }
+    .-current {
+      a {
+        text-shadow: 3px 2px 0 $color31;
+      }
+    }
+  }
+}
+
+.recruitSec {
+  .recruitTtl {
+    position: relative;
+    z-index: 1;
+    font-size: 200%;
+    line-height: 1;
+    &::first-letter {
+      font-size: 250%;
+    }
+    &::before {
+      position: absolute;
+      bottom: 0.2em;
+      left: -0.4em;
+      z-index: -1;
+      display: block;
+      width: 2.5em;
+      height: 2.5em;
+      content: "";
+      background: $color30;
+    }
+  }
+  .leadTxt {
+    margin-top: 1em;
+    font-size: 120%;
+  }
+  .pic {
+    margin-top: 1em;
+  }
+  .btn a {
+    padding: 0;
+    margin-left: 0;
+  }
+}
+.recruitInfo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-top: 5rem;
+  dt {
+    width: 20%;
+    font-size: 80%;
+  }
+  dd {
+    width: 80%;
+    margin-top: 1em;
+    line-height: 1.7;
+  }
+}
+
+.contactTable {
+  width: 100%;
+  margin-top: 5rem;
+  input,
+  button,
+  textarea,
+  select {
+    // デフォルトスタイルをリセット
+    font-family: inherit;
+    color: inherit;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 0.5em;
+    background: #fff;
+  }
+  @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+    input[type="checkbox"],
+    input[type="radio"] {
+      --active: #{$color31};
+      --active-inner: #fff;
+      --focus: 2px #{$color31}aa;
+      --border: #c5c5c5;
+      --border-hover: #{$color31};
+      --background: #fff;
+      --disabled: #e7e7e7;
+      --disabled-inner: #{$color31};
+      position: relative;
+      display: inline-block;
+      width: 18px;
+      min-width: 18px;
+      height: 18px;
+      margin: 0;
+      cursor: pointer;
+      background: var(--b, var(--background));
+      border: 1px solid var(--bc, var(--border));
+      outline: none;
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        content: "";
+        transition: transform var(--d-t, 0.3s) var(--d-t-e, ease),
+          opacity var(--d-o, 0.2s);
+      }
+      &:checked {
+        --b: var(--active);
+        --bc: var(--active);
+        --d-o: 0.3s;
+        --d-t: 0.6s;
+        --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+      }
+      &:disabled {
+        --b: var(--disabled);
+        cursor: not-allowed;
+        opacity: 0.9;
+        &:checked {
+          --b: var(--disabled-inner);
+          --bc: var(--border);
+        }
+        & + label {
+          cursor: not-allowed;
+        }
+      }
+      &:hover {
+        &:not(:checked) {
+          &:not(:disabled) {
+            --bc: var(--border-hover);
+          }
+        }
+      }
+      &:focus {
+        box-shadow: 0 0 0 var(--focus);
+      }
+      &:not(.switch) {
+        &:after {
+          opacity: var(--o, 0);
+        }
+        &:checked {
+          --o: 1;
+          + label {
+            color: $colorText;
+          }
+        }
+      }
+      & + label {
+        margin-left: 0.5em;
+        cursor: pointer;
+      }
+    }
+    input[type="checkbox"] {
+      &:not(.switch) {
+        border-radius: 4px;
+        &:after {
+          top: 3px;
+          left: 5px;
+          width: 6px;
+          height: 9px;
+          border: 2px solid var(--active-inner);
+          border-top: 0;
+          border-left: 0;
+          transform: rotate(var(--r, 20deg));
+        }
+        &:checked {
+          --r: 43deg;
+        }
+      }
+    }
+    input[type="radio"] {
+      border-radius: 50%;
+      &:after {
+        width: 16px;
+        height: 16px;
+        background: var(--active-inner);
+        border-radius: 50%;
+        opacity: 0;
+        transform: scale(var(--s, 0.7));
+      }
+      &:checked {
+        --s: 0.5;
+      }
+    }
+  }
+  tr {
+    display: flex;
+    padding: 1.5rem 0;
+    @include mq() {
+      flex-direction: column;
+    }
+  }
+  th {
+    flex-shrink: 0;
+    width: 160px;
+    padding: 0.5em 1em;
+    text-align: left;
+    @include mq() {
+      padding-left: 0;
+    }
+  }
+  td {
+    flex-grow: 1;
+    padding-right: 1em;
+    @include mq() {
+      padding-top: 0;
+    }
+  }
+  &_radioRow {
+    display: flex;
+    align-items: center;
+    + .contactTable_radioRow {
+      margin-top: 0.2em;
+    }
+  }
+  &_required {
+    th {
+      display: flex;
+      align-items: baseline;
+      &::after {
+        padding: 0.05em 0.15em;
+        margin-left: 0.7em;
+        font-size: 10px;
+        color: #fff;
+        content: "必須";
+        background: adjust-hue($color31, 130deg);
+        border-radius: 2px;
+      }
+    }
+  }
+}
+
+.sec-apply {
+  &.-confirm {
+    .contactTable td {
+      padding: 0.5em 0;
+    }
+  }
+  .contactTxt {
+    text-align: left;
+  }
+  .contactTable {
+    font-size: 80%;
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.5em;
+      background: #f5f5f5;
+    }
+    &_required {
+      th {
+        display: flex;
+        &::after {
+          display: block;
+          padding: 0.3em 0.15em 0;
+          margin-left: 0.7em;
+          font-size: 10px;
+          line-height: 1.5;
+          // border-radius: 2px;
+          color: $color31;
+          content: "必須";
+          // background: $color31;
+          background: none;
+          border: 1px solid $color31;
+        }
+      }
+    }
+    .rowRadio {
+      display: flex;
+      align-items: center;
+      label {
+        vertical-align: middle;
+      }
+      input {
+        margin-right: 0.2em;
+        vertical-align: middle;
+      }
+    }
+    @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+      input[type="checkbox"],
+      input[type="radio"] {
+        --active: #{$color31};
+        --focus: 2px #{$color31}aa;
+        --border-hover: #{$color31};
+        --disabled-inner: #{$color31};
+      }
+    }
+  }
+  .btn {
+    .wpcf7-spinner {
+      position: relative;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      margin: 0 24px;
+      visibility: hidden;
+      background-color: #23282d;
+      border: none;
+      border-radius: 100%;
+      opacity: 0.75;
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+    input {
+      display: inline-block;
+    }
+  }
+  .btn input,
+  .backBtn input {
+    padding: 0.4em 1em;
+    color: $color30;
+    border-color: $color30;
+    &:hover {
+      background: rgba($color30, 0.15);
+    }
+  }
+  .btn.-input::after,
+  .backBtn button::before {
+    display: none;
+  }
+}

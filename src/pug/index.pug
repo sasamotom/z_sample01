@@ -1,21 +1,9 @@
-doctype html
-html(lang="ja")
-  head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1")
-    meta(name="description", content="")
-    title Document
-    link(rel="stylesheet", href="/wp_2022/wp-content/themes/z_sample01/assets/css/app.css")
-  body
-    include ./_includes/_header
+extends ./_base/_layout
 
-    .document-lead-text
-      .container
-        div
-          | Hello, World!
-        a(href="/sub/") サブディレクトリ
-        include ../html/_index.html
+block vars
+  include ./_base/_settings
+  - let key = "top"
+  - let page = pages[key]
 
-    script(src="/wp_2022/wp-content/themes/z_sample01/assets/js/app.js")
-    script(src="/wp_2022/wp-content/themes/z_sample01/assets/ts/app.js")
+block contents
+  include ../html/_index.html

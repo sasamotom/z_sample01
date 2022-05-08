@@ -1,14 +1,62 @@
 @use "../abstracts" as *;
 
-.l-header {
-  padding: 16px 0;
-  background-color: #fff;
-
-  .document-title {
-    font-size: 4rem;
-
-    @include mq() {
-      font-size: 3.4rem;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 20px;
+  background: none;
+}
+.gnav {
+  margin: 0 auto;
+  &List {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2em 3em;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 4rem;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      0deg,
+      transparent 0%,
+      transparent 25%,
+      rgba(255, 255, 255, 1) 25%,
+      rgba(255, 255, 255, 1) 75%,
+      transparent 75%,
+      transparent 100%
+    );
+    .logo {
+      width: 100px;
+      transition: 0.3s;
+      &:hover {
+        filter: drop-shadow(5px 4px 0 $color31);
+      }
+    }
+    li:not(.btn) {
+      a {
+        display: inline-block;
+        min-width: 4em;
+        font-size: 1.6rem;
+        &::before,
+        &::after {
+          display: none;
+        }
+        &:hover {
+          color: $color31;
+          text-shadow: 3px 2px 0 $color30;
+        }
+      }
+    }
+    .-current {
+      a {
+        text-shadow: 3px 2px 0 $color30;
+      }
     }
   }
 }

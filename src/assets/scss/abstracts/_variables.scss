@@ -5,9 +5,27 @@ $mq-breakpoints: (
 );
 
 // Fonts
-$base-font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka,
-  "游ゴシック", "Yu Gothic", YuGothic, "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
-  "MS PGothic", sans-serif;
+// $base-font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka,
+//   "游ゴシック", "Yu Gothic", YuGothic, "メイリオ", Meiryo, "ＭＳ Ｐゴシック",
+//   "MS PGothic", sans-serif;
+$fontMincho: "游明朝体", YuMincho, "游明朝", "Yu Mincho", "ヒラギノ明朝 ProN W3",
+  "Hiragino Mincho ProN W3", HiraMinProN-W3, "ヒラギノ明朝 ProN",
+  "Hiragino Mincho ProN", "ヒラギノ明朝 Pro", "Hiragino Mincho Pro", "HGS明朝E",
+  "ＭＳ Ｐ明朝", "MS PMincho", Georgia, Times, "Times New Roman", serif,
+  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$fontGothic: "游ゴシック体", YuGothic, "Yu Gothic M", "游ゴシック Medium",
+  "Yu Gothic Medium", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", Osaka,
+  -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Helvetica,
+  "ＭＳ Ｐゴシック", "MS PGothic", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$baseFont: $fontGothic;
 
 // Colors
-$base-text-color: #000;
+$bgColor: #fff;
+
+$colorText: #333;
+$colorTextReversal: #fff;
+$linkColor: $colorText;
+
+$color30: #79dff1;
+$color31: #f4c4f0;

@@ -1,7 +1,12 @@
 .container {
-  max-width: 1480px;
-  padding-right: 20px;
-  padding-left: 20px;
+  width: 96%;
+  max-width: 900px;
   margin-right: auto;
   margin-left: auto;
+}
+
+[class^="sec-"],
+[class*=" sec-"] {
+  padding-top: 7rem;
+  padding-bottom: 5rem;
 }
