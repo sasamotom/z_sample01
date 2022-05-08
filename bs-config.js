@@ -4,6 +4,6 @@ module.exports = {
     baseDir: "htdocs",
   },
   proxy: false,
-  open: false,
+  // open: false,
   notify: false,
 };
