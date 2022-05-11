@@ -167,7 +167,7 @@ _Babel_
 _package.json: Line 18_
 
 ```
-"watch:images": "onchange -i \"src/assets/images/**/*.*\" -- npm run imagemin",
+"watch:images": "onchange -i \"src/assets/images/**/*.*\" -- npm run imagemin {{changed}}",
 ```
 
 _package.json: Line 19_
@@ -182,13 +182,14 @@ _package.json: Line 29_
 "copy": "copyfiles -e \"src/assets/images/*.*\" -u 1 \"src/**/!(*.js|*.scss|*.pug|*.ejs)\" htdocs"
 ```
 
-_imagemin.js: Line 7_
+_imagemin.js: Line 6-7_
 
 ```
-keepFolder(["./src/assets/images/**/*.*"], {
+const inputDir =
+  process.argv[2] !== "" ? [process.argv[2]] : ["./src/assets/images/**/*.*"];
 ```
 
-_imagemin.js Line 19_
+_imagemin.js Line 21_
 
 ```
 return output.replace(/images\//, "../../htdocs/assets/images/");

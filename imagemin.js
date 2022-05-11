@@ -3,8 +3,10 @@ const mozjpeg = require("imagemin-mozjpeg");
 const pngquant = require("imagemin-pngquant");
 const gifsicle = require("imagemin-gifsicle");
 const svgo = require("imagemin-svgo");
+const inputDir =
+  process.argv[2] !== "" ? [process.argv[2]] : ["./src/assets/images/**/*.*"];
 
-keepFolder(["./src/assets/images/**/*.*"], {
+keepFolder(inputDir, {
   plugins: [
     mozjpeg({
       quality: 80,
