@@ -182,14 +182,14 @@ _package.json: Line 29_
 "copy": "copyfiles -e \"src/assets/images/*.*\" -u 1 \"src/**/!(*.js|*.scss|*.pug|*.ejs)\" htdocs"
 ```
 
-_imagemin.js: Line 6-7_
+_imagemin.js: Line 7-8_
 
 ```
-const inputDir =
-  process.argv[2] !== "" ? [process.argv[2]] : ["./src/assets/images/**/*.*"];
+const file =
+  changed !== "" && changed ? [changed] : ["./src/assets/images/**/*.*"];
 ```
 
-_imagemin.js Line 21_
+_imagemin.js Line 22_
 
 ```
 return output.replace(/images\//, "../../htdocs/assets/images/");
